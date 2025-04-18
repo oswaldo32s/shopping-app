@@ -1,0 +1,14 @@
+.Home {
+  display: flex;
+  justify-content: center;
+}
+
+.HomeContainer {
+  width: 90ch;
+}
+
+@media screen and (max-width: 850px) {
+  .HomeContainer {
+    padding: 0 1em;
+  }
+}
