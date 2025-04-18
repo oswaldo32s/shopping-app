@@ -1,0 +1,64 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+:root {
+  /* Light theme */
+  --light-bg: #f4f7f1;
+  --light-bg-box: #e0e6d5;
+  --light-text: #141414;
+  --light-accent: #7cae61;
+  --light-accent-hover: #68974e;
+
+  /* Dark theme */
+  --dark-bg: #1a1b19;
+  --dark-bg-box: #2d312a;
+  --dark-text: #eeeeee;
+  --dark-accent: #3c562e;
+  --dark-accent-hover: #50733f;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+body {
+  /* Default to dark theme */
+  --bg: var(--dark-bg);
+  --bg-box: var(--dark-bg-box);
+  --text: var(--dark-text);
+  --accent: var(--dark-accent);
+  --accent-hover: var(--dark-accent-hover);
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Ubuntu, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body.light {
+  /* Override with light theme */
+  --bg: var(--light-bg);
+  --bg-box: var(--light-bg-box);
+  --text: var(--light-text);
+  --accent: var(--light-accent);
+  --accent-hover: var(--light-accent-hover);
+}
+
+@media (prefers-color-scheme: light) {
+  body:not(.dark) {
+    /* Automatically apply light theme if user prefers light mode */
+    --bg: var(--light-bg);
+    --bg-box: var(--light-bg-box);
+    --text: var(--light-text);
+    --accent: var(--light-accent);
+    --accent-hover: var(--light-accent-hover);
+  }
+}

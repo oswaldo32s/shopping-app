@@ -1,0 +1,42 @@
+.header {
+  background-color: var(--accent);
+  display: flex;
+  justify-content: center;
+  height: 4em;
+}
+
+.headerContainer {
+  width: 90ch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 30px;
+}
+
+.left {
+  display: flex;
+  gap: 10px;
+}
+
+.link {
+  display: flex;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 850px) {
+  .headerContainer {
+    padding: 0 1em;
+  }
+
+  .webTitle {
+    display: none;
+  }
+}

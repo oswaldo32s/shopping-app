@@ -1,0 +1,18 @@
+.logo {
+  width: 20px;
+  stroke: var(--text);
+}
+
+.toggleButton {
+  border: none;
+  background-color: var(--accent);
+  border-radius: 5px;
+  gap: 5px;
+  padding: 0.5em;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.toggleButton:hover {
+  background-color: var(--accent-hover);
+}
