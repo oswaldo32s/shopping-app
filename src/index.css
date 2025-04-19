@@ -15,6 +15,7 @@ html {
   --light-text: #141414;
   --light-accent: #7cae61;
   --light-accent-hover: #68974e;
+  --light-sec-accent: #ccc;
 
   /* Dark theme */
   --dark-bg: #1a1b19;
@@ -22,6 +23,7 @@ html {
   --dark-text: #eeeeee;
   --dark-accent: #3c562e;
   --dark-accent-hover: #50733f;
+  --dark-sec-accent: #5a5a5a;
 }
 
 a {
@@ -36,6 +38,7 @@ body {
   --text: var(--dark-text);
   --accent: var(--dark-accent);
   --accent-hover: var(--dark-accent-hover);
+  --sec-accent: var(--dark-sec-accent);
   margin: 0;
   background-color: var(--bg);
   color: var(--text);
@@ -50,6 +53,7 @@ body.light {
   --text: var(--light-text);
   --accent: var(--light-accent);
   --accent-hover: var(--light-accent-hover);
+  --sec-accent: var(--light-sec-accent);
 }
 
 @media (prefers-color-scheme: light) {
@@ -60,5 +64,6 @@ body.light {
     --text: var(--light-text);
     --accent: var(--light-accent);
     --accent-hover: var(--light-accent-hover);
+    --sec-accent: var(---sec-accent);
   }
 }
