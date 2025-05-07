@@ -1,0 +1,16 @@
+.button {
+  background-color: var(--accent);
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 20px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.button:hover {
+  background-color: var(--accent-hover);
+}

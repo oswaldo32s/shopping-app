@@ -1,5 +1,5 @@
-import { useOutletContext } from "react-router-dom";
-import ProductItem from "./ProductItem";
+import { useOutletContext } from "react-router";
+import ProductItem from "./ProductItem/ProductItem";
 import styles from "./Product.module.css";
 
 export default function Products() {
@@ -12,6 +12,7 @@ export default function Products() {
         <section className={styles.productContainer}>
           {products.map((product) => (
             <ProductItem
+              key={product.id}
               id={product.id}
               title={product.title}
               description={product.description}

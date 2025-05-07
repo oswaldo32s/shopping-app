@@ -44,6 +44,8 @@ body {
   color: var(--text);
   font-family: Ubuntu, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 body.light {

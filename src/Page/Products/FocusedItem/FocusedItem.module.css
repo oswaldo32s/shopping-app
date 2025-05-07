@@ -1,0 +1,67 @@
+.focused {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  max-width: 90ch;
+  height: 100vh;
+  top: 4em;
+  padding: 20px;
+  background-color: var(--bg);
+}
+
+.left {
+  min-width: 50%;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title,
+.description {
+  margin: 0;
+}
+
+.img {
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.svg {
+  width: 20px;
+}
+
+.close {
+  position: relative;
+  left: calc(100% - 3em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000000;
+  color: var(--text);
+  border: 2px solid var(--bg-box);
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+}
+
+.close:hover {
+  background-color: var(--bg-box);
+}
+
+@media screen and (max-width: 700px) {
+  .focused {
+    flex-direction: column;
+  }
+
+  .close {
+    position: absolute;
+    top: 2em;
+    left: calc(100% - 4em);
+  }
+}
