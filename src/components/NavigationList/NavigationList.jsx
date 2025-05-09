@@ -1,7 +1,11 @@
 import styles from "./NavigationList.module.css";
 import { Link } from "react-router";
 
-export default function NavigationList() {
+export default function NavigationList({ cart = [] }) {
+  const totalItems = cart.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.quantity,
+    0
+  );
   return (
     <nav>
       <ul className={styles.ul}>
@@ -65,6 +69,9 @@ export default function NavigationList() {
               />
             </svg>
             <p className={styles.text}>Cart</p>
+            {totalItems > 0 ? (
+              <span className={styles.cartItems}>{totalItems}</span>
+            ) : null}
           </li>
         </Link>
       </ul>

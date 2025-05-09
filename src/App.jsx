@@ -21,7 +21,6 @@ function App() {
     const itemID = event.target.closest("article").id;
     const product = products.find((product) => product.id == itemID);
     const itemIndex = cartItems.findIndex((item) => item.id == itemID);
-    console.log(itemID);
     // Check if Item exist
     if (itemIndex !== -1) {
       // Update item
@@ -39,6 +38,8 @@ function App() {
         ...cartItems,
         {
           id: product.id,
+          title: product.title,
+          image: product.image,
           unitPrice: product.price,
           totalPrice: product.price,
           quantity: 1,
@@ -51,7 +52,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header cart={cartItems} />
       <Outlet context={[{ products, cartItems, addCartItem }]} />
     </>
   );

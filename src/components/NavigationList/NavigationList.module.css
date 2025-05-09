@@ -26,6 +26,17 @@
   width: 20px;
 }
 
+.cartItems {
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  background-color: rgb(177, 28, 28);
+  padding: 3px;
+  min-width: 3ch;
+  border-radius: 50%;
+  text-align: center;
+}
+
 @media screen and (max-width: 500px) {
   .text {
     display: none;

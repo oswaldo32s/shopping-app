@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import ToggleThemeButton from "../ToggleThemeButton/ToggleThemeButton";
 import NavigationList from "../NavigationList/NavigationList";
 
-export default function Header() {
+export default function Header({ cart }) {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
@@ -30,7 +30,7 @@ export default function Header() {
         </section>
         <section className={styles.right}>
           <ToggleThemeButton />
-          <NavigationList />
+          <NavigationList cart={cart} />
         </section>
       </div>
     </header>

@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 90ch;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: scroll;
+  max-height: 75vh;
+}
+
+.checkOut {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.title {
+  margin: 7px 0;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    padding: 0 20px;
+  }
+}
