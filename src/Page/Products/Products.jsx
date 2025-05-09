@@ -3,7 +3,7 @@ import ProductItem from "./ProductItem/ProductItem";
 import styles from "./Product.module.css";
 
 export default function Products() {
-  const [products] = useOutletContext();
+  const [{ products, addCartItem }] = useOutletContext();
 
   return (
     <main className={styles.main}>
@@ -13,12 +13,8 @@ export default function Products() {
           {products.map((product) => (
             <ProductItem
               key={product.id}
-              id={product.id}
-              title={product.title}
-              description={product.description}
-              category={product.category}
-              price={product.price}
-              image={product.image}
+              productDetails={product}
+              addCartItem={addCartItem}
             />
           ))}
         </section>

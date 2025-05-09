@@ -3,14 +3,8 @@ import Button from "../../../components/Button/Button";
 import FocusedItem from "../FocusedItem/FocusedItem";
 import { useState } from "react";
 
-export default function ProductItem({
-  id,
-  title,
-  description,
-  price,
-  category,
-  image,
-}) {
+export default function ProductItem({ productDetails, addCartItem }) {
+  const { id, title, description, price, category, image } = productDetails;
   const [isFocused, setIsFocused] = useState(false);
 
   return isFocused ? (
@@ -41,7 +35,7 @@ export default function ProductItem({
         <p className={styles.price}>${price.toFixed(2)}</p>
         <span className={styles.category}>{category}</span>
       </div>
-      <Button>
+      <Button handleClick={addCartItem}>
         Add
         <svg
           xmlns="http://www.w3.org/2000/svg"

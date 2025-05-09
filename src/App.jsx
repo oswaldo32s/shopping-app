@@ -15,10 +15,43 @@ function App() {
       });
   }, []);
 
+  function addCartItem(event) {
+    event.stopPropagation();
+    // Get the Item
+    const itemID = event.target.closest("article").id;
+    const product = products.find((product) => product.id == itemID);
+    const itemIndex = cartItems.findIndex((item) => item.id == itemID);
+    console.log(itemID);
+    // Check if Item exist
+    if (itemIndex !== -1) {
+      // Update item
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[itemIndex] = {
+        ...updatedCartItems[itemIndex],
+        totalPrice: updatedCartItems[itemIndex].totalPrice + product.price,
+        quantity: updatedCartItems[itemIndex].quantity + 1,
+      };
+      console.log(updatedCartItems);
+      setCartItems(updatedCartItems);
+    } else {
+      // Add new Item
+      const newCartItems = [
+        ...cartItems,
+        {
+          id: product.id,
+          totalPrice: product.price,
+          quantity: 1,
+        },
+      ];
+      console.log(newCartItems);
+      setCartItems(newCartItems);
+    }
+  }
+
   return (
     <>
       <Header />
-      <Outlet context={[products, cartItems]} />
+      <Outlet context={[{ products, cartItems, addCartItem }]} />
     </>
   );
 }

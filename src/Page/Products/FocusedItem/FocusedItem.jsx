@@ -11,7 +11,7 @@ export default function FocusedItem({
   image,
 }) {
   return (
-    <section className={styles.focused} id={id}>
+    <article className={styles.focused} id={id}>
       <div className={styles.left}>
         <img src={image} alt={description} className={styles.img} />
       </div>
@@ -53,6 +53,6 @@ export default function FocusedItem({
           </svg>
         </Button>
       </div>
-    </section>
+    </article>
   );
 }
