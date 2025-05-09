@@ -16,7 +16,7 @@
   flex-direction: column;
   gap: 20px;
   overflow: scroll;
-  max-height: 75dvh;
+  max-height: 70dvh;
 }
 
 .checkOut {
