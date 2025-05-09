@@ -3,7 +3,7 @@
   display: flex;
   gap: 20px;
   max-width: 90ch;
-  height: 100vh;
+  height: 100dvh;
   top: 4em;
   padding: 20px;
   background-color: var(--bg);
