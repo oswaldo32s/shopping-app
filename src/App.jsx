@@ -39,6 +39,7 @@ function App() {
         ...cartItems,
         {
           id: product.id,
+          unitPrice: product.price,
           totalPrice: product.price,
           quantity: 1,
         },
