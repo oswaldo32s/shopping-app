@@ -6,7 +6,6 @@ import styles from "./Cart.module.css";
 export default function Cart() {
   const [{ cartItems, addCartItem, removeOneItem, deleteItem, clearCart }] =
     useOutletContext();
-  console.log(cartItems);
   const total = cartItems.reduce(
     (accumulator, currentValue) => accumulator + currentValue.totalPrice,
     0

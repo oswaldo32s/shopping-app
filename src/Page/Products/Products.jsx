@@ -17,8 +17,8 @@ export default function Products() {
               productDetails={product}
               cartItems={cartItems}
               addCartItem={addCartItem}
-              DeleteItem={deleteItem}
-              RemoveOneItem={removeOneItem}
+              deleteItem={deleteItem}
+              removeOneItem={removeOneItem}
             />
           ))}
         </section>
