@@ -1,9 +1,9 @@
 import styles from "./CartItem.module.css";
 import RoundButton from "../../../components/RoundButton/Button/RoundButton";
 
-export default function CartItem({ item }) {
+export default function CartItem({ item, addItem, removeOneItem, deleteItem }) {
   return (
-    <article className={styles.article}>
+    <article id={item.id} className={styles.article}>
       <div className={styles.imageContainer}>
         <img src={item.image} alt={item.title} className={styles.img} />
       </div>
@@ -18,7 +18,7 @@ export default function CartItem({ item }) {
           </div>
         </div>
         <div className={styles.buttonSection}>
-          <RoundButton>
+          <RoundButton handleClick={removeOneItem}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -30,7 +30,7 @@ export default function CartItem({ item }) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
             </svg>
           </RoundButton>
-          <RoundButton>
+          <RoundButton handleClick={deleteItem}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -46,7 +46,7 @@ export default function CartItem({ item }) {
               />
             </svg>
           </RoundButton>
-          <RoundButton>
+          <RoundButton handleClick={addItem}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

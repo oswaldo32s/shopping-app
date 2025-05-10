@@ -1,12 +1,18 @@
 .focused {
   position: absolute;
-  display: flex;
-  gap: 20px;
   max-width: 90ch;
   height: 100dvh;
   top: 4em;
-  padding: 20px;
+  padding: 20px 0;
   background-color: var(--bg);
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  background-color: var(--bg-box);
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .left {
@@ -16,7 +22,24 @@
 .right {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttonSection {
+  display: flex;
   gap: 10px;
+  justify-content: center;
+}
+
+.rightText {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.price {
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 .title,
@@ -43,7 +66,7 @@
   justify-content: center;
   background-color: #00000000;
   color: var(--text);
-  border: 2px solid var(--bg-box);
+  border: 2px solid var(--sec-accent);
   border-radius: 50%;
   width: 2em;
   height: 2em;
@@ -51,7 +74,15 @@
 }
 
 .close:hover {
-  background-color: var(--bg-box);
+  background-color: var(--sec-accent);
+}
+
+.tag {
+  padding: 5px 10px;
+  background-color: var(--sec-accent);
+  border-radius: 5px;
+  font-size: 0.8em;
+  width: fit-content;
 }
 
 @media screen and (max-width: 700px) {

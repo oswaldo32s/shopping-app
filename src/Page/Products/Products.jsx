@@ -3,7 +3,8 @@ import ProductItem from "./ProductItem/ProductItem";
 import styles from "./Product.module.css";
 
 export default function Products() {
-  const [{ products, addCartItem }] = useOutletContext();
+  const [{ products, addCartItem, cartItems, deleteItem, removeOneItem }] =
+    useOutletContext();
 
   return (
     <main className={styles.main}>
@@ -14,7 +15,10 @@ export default function Products() {
             <ProductItem
               key={product.id}
               productDetails={product}
+              cartItems={cartItems}
               addCartItem={addCartItem}
+              DeleteItem={deleteItem}
+              RemoveOneItem={removeOneItem}
             />
           ))}
         </section>
