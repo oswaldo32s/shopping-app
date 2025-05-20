@@ -1,25 +1,18 @@
-import { useOutletContext } from "react-router";
+import { ProductFilters } from "./ProductFilters/ProductFilters";
 import ProductItem from "./ProductItem/ProductItem";
 import styles from "./Product.module.css";
+import { useProducts } from "../../hooks/useProducts";
 
 export default function Products() {
-  const [{ products, addCartItem, cartItems, deleteItem, removeOneItem }] =
-    useOutletContext();
-
+  const { filteredProducts } = useProducts();
   return (
     <main className={styles.main}>
       <div className={styles.Container}>
         <h2 className={styles.title}>Start Shopping!</h2>
+        <ProductFilters />
         <section className={styles.productContainer}>
-          {products.map((product) => (
-            <ProductItem
-              key={product.id}
-              productDetails={product}
-              cartItems={cartItems}
-              addCartItem={addCartItem}
-              deleteItem={deleteItem}
-              removeOneItem={removeOneItem}
-            />
+          {filteredProducts.map((product) => (
+            <ProductItem key={product.id} product={product} />
           ))}
         </section>
       </div>

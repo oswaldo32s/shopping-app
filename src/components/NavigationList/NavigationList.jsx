@@ -1,7 +1,9 @@
+import { useCart } from "../../hooks/useCart";
 import styles from "./NavigationList.module.css";
 import { Link } from "react-router";
 
-export default function NavigationList({ cart = [] }) {
+export default function NavigationList() {
+  const { cart } = useCart();
   const totalItems = cart.reduce(
     (accumulator, currentValue) => accumulator + currentValue.quantity,
     0

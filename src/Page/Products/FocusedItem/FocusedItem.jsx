@@ -1,16 +1,11 @@
 import styles from "./FocusedItem.module.css";
 import Button from "../../../components/Button/Button";
 import RoundButton from "../../../components/RoundButton/Button/RoundButton";
+import { useCart } from "../../../hooks/useCart";
 
-export default function FocusedItem({
-  product,
-  addToCart,
-  cartItems,
-  removeOneItem,
-  deleteItem,
-  handleClick = () => {},
-}) {
+export default function FocusedItem({ product, toggleFocus }) {
   const { id, title, description, price, category, image } = product;
+  const { cart, addCartItem, removeOneItem, deleteItem } = useCart();
 
   return (
     <article className={styles.focused} id={id}>
@@ -20,7 +15,7 @@ export default function FocusedItem({
         </div>
         <div className={styles.right}>
           <div className={styles.rightText}>
-            <button className={styles.close} onClick={handleClick}>
+            <button className={styles.close} onClick={toggleFocus}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -41,8 +36,8 @@ export default function FocusedItem({
             <span className={styles.tag}>{category}</span>
             <p className={styles.description}>{description}</p>
           </div>
-          {cartItems.findIndex((item) => item.id == id) == -1 ? (
-            <Button handleClick={addToCart}>
+          {cart.findIndex((item) => item.id == id) == -1 ? (
+            <Button handleClick={() => addCartItem(product)}>
               Add
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +56,11 @@ export default function FocusedItem({
             </Button>
           ) : (
             <div className={styles.buttonSection}>
-              <RoundButton handleClick={removeOneItem}>
+              <RoundButton
+                handleClick={() => {
+                  removeOneItem(product);
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -77,7 +76,11 @@ export default function FocusedItem({
                   />
                 </svg>
               </RoundButton>
-              <RoundButton handleClick={deleteItem}>
+              <RoundButton
+                handleClick={() => {
+                  deleteItem(product);
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -93,7 +96,11 @@ export default function FocusedItem({
                   />
                 </svg>
               </RoundButton>
-              <RoundButton handleClick={addToCart}>
+              <RoundButton
+                handleClick={() => {
+                  addCartItem(product);
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

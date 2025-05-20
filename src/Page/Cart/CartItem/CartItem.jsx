@@ -1,19 +1,21 @@
 import styles from "./CartItem.module.css";
 import RoundButton from "../../../components/RoundButton/Button/RoundButton";
+import { useCart } from "../../../hooks/useCart";
 
-export default function CartItem({ item, addItem, removeOneItem, deleteItem }) {
+export default function CartItem({ cart }) {
+  const { addCartItem, deleteItem, removeOneItem } = useCart();
   return (
-    <article id={item.id} className={styles.article}>
+    <article id={cart.id} className={styles.article}>
       <div className={styles.imageContainer}>
-        <img src={item.image} alt={item.title} className={styles.img} />
+        <img src={cart.image} alt={cart.title} className={styles.img} />
       </div>
       <div className={styles.itemDetails}>
         <div className={styles.textSection}>
-          <h2 className={styles.title}>{item.title}</h2>
+          <h2 className={styles.title}>{cart.title}</h2>
           <div className={styles.detailsContainer}>
-            <p className={styles.text}>Quantity: {item.quantity}</p>
+            <p className={styles.text}>Quantity: {cart.quantity}</p>
             <p className={styles.text}>
-              Total: ${item.totalPrice.toLocaleString()}
+              Total: ${cart.totalPrice.toLocaleString()}
             </p>
           </div>
         </div>
@@ -46,7 +48,7 @@ export default function CartItem({ item, addItem, removeOneItem, deleteItem }) {
               />
             </svg>
           </RoundButton>
-          <RoundButton handleClick={addItem}>
+          <RoundButton handleClick={addCartItem}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

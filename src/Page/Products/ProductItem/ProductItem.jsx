@@ -3,25 +3,17 @@ import Button from "../../../components/Button/Button";
 import RoundButton from "../../../components/RoundButton/Button/RoundButton";
 import FocusedItem from "../FocusedItem/FocusedItem";
 import { useState } from "react";
+import { useCart } from "../../../hooks/useCart";
 
-export default function ProductItem({
-  productDetails,
-  addCartItem,
-  cartItems,
-  deleteItem,
-  removeOneItem,
-}) {
-  const { id, title, description, price, category, image } = productDetails;
+export default function ProductItem({ product }) {
+  const { id, title, description, price, category, image } = product;
   const [isFocused, setIsFocused] = useState(false);
+  const { cart, deleteItem, addCartItem, removeOneItem } = useCart();
 
   return isFocused ? (
     <FocusedItem
-      product={productDetails}
-      addToCart={addCartItem}
-      removeOneItem={removeOneItem}
-      deleteItem={deleteItem}
-      cartItems={cartItems}
-      handleClick={() => {
+      product={product}
+      toggleFocus={() => {
         setIsFocused(!isFocused);
       }}
     />
@@ -41,8 +33,13 @@ export default function ProductItem({
         <p className={styles.price}>${price.toFixed(2)}</p>
         <span className={styles.category}>{category}</span>
       </div>
-      {cartItems.findIndex((item) => item.id == id) == -1 ? (
-        <Button handleClick={addCartItem}>
+      {cart.findIndex((item) => item.id == id) == -1 ? (
+        <Button
+          handleClick={(e) => {
+            e.stopPropagation();
+            addCartItem(product);
+          }}
+        >
           Add
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +58,12 @@ export default function ProductItem({
         </Button>
       ) : (
         <div className={styles.buttonSection}>
-          <RoundButton handleClick={removeOneItem}>
+          <RoundButton
+            handleClick={(e) => {
+              e.stopPropagation();
+              removeOneItem(product);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -73,7 +75,12 @@ export default function ProductItem({
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
             </svg>
           </RoundButton>
-          <RoundButton handleClick={deleteItem}>
+          <RoundButton
+            handleClick={(e) => {
+              e.stopPropagation();
+              deleteItem(product);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -89,7 +96,12 @@ export default function ProductItem({
               />
             </svg>
           </RoundButton>
-          <RoundButton handleClick={addCartItem}>
+          <RoundButton
+            handleClick={(e) => {
+              e.stopPropagation();
+              addCartItem(product);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
